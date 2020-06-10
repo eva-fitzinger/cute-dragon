@@ -1,0 +1,214 @@
+.dragon {
+  width: 200px;
+  height: 140px;
+  position: relative; /*makes everything else not go into this -sorry, for the eEnglsich*/
+}
+
+.body {
+  background: url("body.png") no-repeat center center;
+  background-size: contain;
+  width: 100%;
+  height: 128px;
+  position: absolute;
+  z-index: 1;
+}
+
+.mouth {
+  background: url("mouth.png") no-repeat;
+  background-size: contain;
+  width: 78px;
+  height: 56px;
+  position: absolute;
+  left: 38px;
+  top: 50px;
+  animation: openMouth 1s ease infinite;
+  z-index: 2;
+}
+
+@keyframes openMouth {
+  0% {
+    clip-path: ellipse(20% 0% at 50% 0); /*cuts out a part of the gif*/
+  }
+  50% {
+    clip-path: ellipse(100% 100% at 50% 0);
+  }
+  70% {
+    clip-path: ellipse(100% 100% at 50% 0);
+  }
+  100% {
+    clip-path: ellipse(20% 0% at 50% 0);
+  }
+}
+
+.eye {
+  background: url("eye.png") no-repeat;
+  background-size: contain;
+  width: 11px;
+  height: 11px;
+  position: absolute;
+  z-index: 15;
+}
+
+.left-eye {
+  top: 30px;
+  left: 38px;
+}
+
+.right-eye {
+  top: 30px;
+  right: 90px;
+  transform: rotate(180deg);
+}
+
+.blush {
+  background: url("blush.png") no-repeat;
+  background-size: contain;
+  width: 15px;
+  height: 9px;
+  position: absolute;
+  z-index: 10;
+  animation: blushing 1s ease infinite alternate;
+}
+
+.left-blush {
+  top: 35px;
+  left: 36px;
+}
+
+.right-blush {
+  top: 35px;
+  right: 90px;
+}
+
+@keyframes blushing {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
+}
+
+.left-blush {
+  top: 35px;
+  left: 36px;
+}
+
+.right-blush {
+  top: 35px;
+  left: 101px;
+}
+
+.fire-container {
+  position: absolute;
+  top: 50px;
+  left: 55px;
+  animation: fireUp 1s ease-in infinite;
+  z-index: 3;
+}
+
+.fire {
+  background: url("fire.png") no-repeat;
+  background-size: contain;
+  width: 40px;
+  height: 60px;
+  animation: fire 1s ease-out infinite;
+  z-index: 3;
+}
+
+@keyframes fire {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1, 1);
+    opacity: 0;
+  }
+}
+
+@keyframes fireUp {
+  0% {
+    top: 50px;
+  }
+  100% {
+    top: -50px;
+  }
+}
+
+.dragon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+}
+
+.tail {
+  background: url("tail-sting.png") no-repeat;
+  background-size: contain;
+  width: 40px;
+  height: 38px;
+  position: absolute;
+  top: 70px;
+  left: 128px;
+  z-index: inherit;
+  z-index: 0;
+  animation: tailGrow 0.5s cubic-bezier(0.47, 0, 0.75, 0.72) infinite alternate;
+}
+
+@keyframes tailGrow {
+  0% {
+    transform: scaleY(0.9);
+  }
+  100% {
+    transform: scaleY(1.1);
+  }
+}
+
+.horn-left {
+  background: url("horn-left.png") no-repeat;
+  background-size: contain;
+  position: absolute;
+  height: 31px;
+  width: 31px;
+  left: 10px;
+  top: -8px;
+  transform: rotate(-10deg);
+  transform-origin: 130% 180%;
+  animation: swingRight 0.5s ease-in-out infinite alternate;
+}
+
+.horn-right {
+  background: url("horn-right.png") no-repeat;
+  background-size: contain;
+  position: absolute;
+  height: 31px;
+  width: 34px;
+  left: 110px;
+  z-index: 20px;
+  top: -8px;
+  transform-origin: -30% 180%; /*x y*/
+  animation: swingRight 0.5s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes swingRight {
+  0% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(5deg);
+  }
+}
+
+.dragon {
+  animation: zoom 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(1.1, 1.1);
+  }
+}
